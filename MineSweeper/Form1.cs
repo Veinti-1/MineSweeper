@@ -90,7 +90,7 @@ namespace MineSweeper
             {
                 x = rnd.Next(0, n);
                 y = rnd.Next(0, n);
-                if (TableroVals[x, y] != 9)
+                if (TableroVals[x, y] < 8)
                 {
                     TableroVals[x, y] = 9;
                     AsignarVal(x, y);
@@ -98,37 +98,30 @@ namespace MineSweeper
                 else
                     i--;
             }
+            //WriteVals();
         }
         private void AsignarVal(int x, int y)
         {
             if (PosValida(x + 1, y))
-                if (TableroVals[x + 1, y] != 9)
-                    TableroVals[x + 1, y]++;
+                TableroVals[x + 1, y]++;
             if (PosValida(x - 1, y))
-                if (TableroVals[x - 1, y] != 9)
-                    TableroVals[x - 1, y]++;
+                TableroVals[x - 1, y]++;
             if (PosValida(x, y + 1))
-                if (TableroVals[x, y + 1] != 9)
-                    TableroVals[x, y + 1]++;
+                TableroVals[x, y + 1]++;
             if (PosValida(x, y - 1))
-                if (TableroVals[x, y - 1] != 9)
-                    TableroVals[x, y - 1]++;
+                TableroVals[x, y - 1]++;
             if (PosValida(x + 1, y + 1))
-                if (TableroVals[x + 1, y + 1] != 9)
-                    TableroVals[x + 1, y + 1]++;
+                TableroVals[x + 1, y + 1]++;
             if (PosValida(x - 1, y - 1))
-                if (TableroVals[x - 1, y - 1] != 9)
-                    TableroVals[x - 1, y - 1]++;
+                TableroVals[x - 1, y - 1]++;
             if (PosValida(x + 1, y - 1))
-                if (TableroVals[x + 1, y - 1] != 9)
-                    TableroVals[x + 1, y - 1]++;
+                TableroVals[x + 1, y - 1]++;
             if (PosValida(x - 1, y + 1))
-                if (TableroVals[x - 1, y + 1] != 9)
-                    TableroVals[x - 1, y + 1]++;
+                TableroVals[x - 1, y + 1]++;
         }
         private void Revelar(int x, int y)
         {
-            if (TableroVals[x, y] == 9)
+            if (TableroVals[x, y] > 8)
             {
                 Tablero[x, y].Value = "💣";
                 Tablero[x, y].Style = styleFlag;
@@ -275,10 +268,10 @@ namespace MineSweeper
         {
             if (!endCondition)
             {
-                if (!usarBandera)
-                    Revelar(e.ColumnIndex, e.RowIndex);
-                else
+                if (usarBandera)
                     Marcar(e.ColumnIndex, e.RowIndex);
+                else if (Tablero[e.ColumnIndex, e.RowIndex].Style.BackColor != Color.Red)
+                    Revelar(e.ColumnIndex, e.RowIndex);
                 CheckWin();
             }
             Tablero.ClearSelection();
@@ -287,6 +280,26 @@ namespace MineSweeper
         {
             usarBandera = !usarBandera;
             radioButton1.Checked = usarBandera;
+        }
+        private void WriteVals()
+        {
+            // Debug Tool
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (TableroVals[j, i] > 8)
+                    {
+                        Tablero[j, i].Style = styleFlag;
+                    }
+                    if (TableroVals[j, i] == 1 )
+                    {
+                        Tablero[j, i].Style = styleDig;
+                    }
+                    Tablero[j, i].Value = TableroVals[j, i];
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
