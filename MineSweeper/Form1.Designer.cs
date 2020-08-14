@@ -71,6 +71,7 @@
             this.Tablero.RowHeadersWidth = 51;
             this.Tablero.RowTemplate.Height = 24;
             this.Tablero.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.Tablero.ShowCellToolTips = false;
             this.Tablero.Size = new System.Drawing.Size(640, 446);
             this.Tablero.TabIndex = 1;
             this.Tablero.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Tablero_CellClick);
@@ -129,7 +130,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 107);
             this.label3.TabIndex = 8;
-            this.label3.Text = "🕑 TIME:";
+            this.label3.Text = "🕑 TIME: 0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timer1

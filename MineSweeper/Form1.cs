@@ -57,7 +57,7 @@ namespace MineSweeper
             {
                 case "EASY":
                     n = 9;
-                    Tminas = 10; 
+                    Tminas = 10;
                     fontS = 16;
                     break;
                 case "MEDIUM":
@@ -203,71 +203,59 @@ namespace MineSweeper
         }
         private DataGridViewCellStyle Colores(int val)
         {
-            if (val == 1)
+            switch (val)
             {
-                DataGridViewCellStyle style1 = new DataGridViewCellStyle();
-                style1.BackColor = styleDig.BackColor;
-                style1.ForeColor = Color.FromArgb(0, 60, 255);
-                style1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                return style1;
+                case 1:
+                    DataGridViewCellStyle style1 = new DataGridViewCellStyle();
+                    style1.BackColor = styleDig.BackColor;
+                    style1.ForeColor = Color.FromArgb(0, 60, 255);
+                    style1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    return style1;
+                case 2:
+                    DataGridViewCellStyle style2 = new DataGridViewCellStyle();
+                    style2.BackColor = styleDig.BackColor;
+                    style2.ForeColor = Color.FromArgb(0, 200, 30);
+                    style2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    return style2;
+                case 3:
+                    DataGridViewCellStyle style3 = new DataGridViewCellStyle();
+                    style3.BackColor = styleDig.BackColor;
+                    style3.ForeColor = Color.FromArgb(232, 14, 14);
+                    style3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    return style3;
+                case 4:
+                    DataGridViewCellStyle style4 = new DataGridViewCellStyle();
+                    style4.BackColor = styleDig.BackColor;
+                    style4.ForeColor = Color.FromArgb(31, 42, 145);
+                    style4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    return style4;
+                case 5:
+                    DataGridViewCellStyle style5 = new DataGridViewCellStyle();
+                    style5.BackColor = styleDig.BackColor;
+                    style5.ForeColor = Color.FromArgb(145, 31, 31);
+                    style5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    return style5;
+                case 6:
+                    DataGridViewCellStyle style6 = new DataGridViewCellStyle();
+                    style6.BackColor = styleDig.BackColor;
+                    style6.ForeColor = Color.FromArgb(33, 156, 143);
+                    style6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    return style6;
+                case 7:
+                    DataGridViewCellStyle style7 = new DataGridViewCellStyle();
+                    style7.BackColor = styleDig.BackColor;
+                    style7.ForeColor = Color.FromArgb(35, 37, 41);
+                    style7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    return style7;
+                case 8:
+                    DataGridViewCellStyle style8 = new DataGridViewCellStyle();
+                    style8.BackColor = styleDig.BackColor;
+                    style8.ForeColor = Color.FromArgb(108, 128, 125);
+                    style8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    return style8;
+                default:
+                    return styleDig;
             }
-            if (val == 2)
-            {
-                DataGridViewCellStyle style2 = new DataGridViewCellStyle();
-                style2.BackColor = styleDig.BackColor;
-                style2.ForeColor = Color.FromArgb(0, 200, 30);
-                style2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                return style2;
-            }
-            if (val == 3)
-            {
-                DataGridViewCellStyle style3 = new DataGridViewCellStyle();
-                style3.BackColor = styleDig.BackColor;
-                style3.ForeColor = Color.FromArgb(232, 14, 14);
-                style3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                return style3;
-            }
-            if (val == 4)
-            {
-                DataGridViewCellStyle style4 = new DataGridViewCellStyle();
-                style4.BackColor = styleDig.BackColor;
-                style4.ForeColor = Color.FromArgb(31, 42, 145);
-                style4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                return style4;
-            }
-            if (val == 5)
-            {
-                DataGridViewCellStyle style5 = new DataGridViewCellStyle();
-                style5.BackColor = styleDig.BackColor;
-                style5.ForeColor = Color.FromArgb(145, 31, 31);
-                style5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                return style5;
-            }
-            if (val == 6)
-            {
-                DataGridViewCellStyle style6 = new DataGridViewCellStyle();
-                style6.BackColor = styleDig.BackColor;
-                style6.ForeColor = Color.FromArgb(33, 156, 143);
-                style6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                return style6;
-            }
-            if (val == 7)
-            {
-                DataGridViewCellStyle style7 = new DataGridViewCellStyle();
-                style7.BackColor = styleDig.BackColor;
-                style7.ForeColor = Color.FromArgb(35, 37, 41);
-                style7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                return style7;
-            }
-            if (val == 8)
-            {
-                DataGridViewCellStyle style8 = new DataGridViewCellStyle();
-                style8.BackColor = styleDig.BackColor;
-                style8.ForeColor = Color.FromArgb(108, 128, 125);
-                style8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                return style8;
-            }
-            return styleDig;
         }
         private void CheckWin()
         {
